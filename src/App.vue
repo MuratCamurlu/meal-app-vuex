@@ -1,30 +1,39 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="wrapper">
+    <header class="header">
+      <router-link to="/">Home</router-link>
+      <div class="search">
+        <router-link :to="{ name: 'byName' }">Search Meals</router-link>
+        <router-link :to="{ name: 'byLetter' }">Meals By Letter</router-link>
+      </div>
+    </header>
+    <main><router-view /></main>
+  </div>
 </template>
+<script setup></script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.wrapper {
+  width: 100%;
+  height: 100vh;
 }
-
-nav {
-  padding: 30px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 16px;
+  background-color: beige;
 }
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
-
-nav a.router-link-exact-active {
-  color: #42b983;
+a {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
 }
 </style>
